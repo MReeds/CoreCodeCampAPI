@@ -10,9 +10,10 @@ namespace CoreCodeCamp.API.Controllers
     [Route("api/[controller]")]
     public class CampsController : ControllerBase
     {
-        public object Get()
+        [HttpGet]
+        public IActionResult GetCamps()
         {
-            return new { Moniker = "NSS2020", Name = "Nashville Software School" };
+            return Ok(new {Moniker = "NSS2020", Name = "Nashville Software School" });
         }
     }
 }
