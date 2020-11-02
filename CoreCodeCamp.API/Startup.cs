@@ -18,9 +18,11 @@ namespace CoreCodeCamp
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
             services.AddDbContext<CampContext>();
             services.AddScoped<ICampRepository, CampRepository>();
+
+            services.AddControllers();
 
             services.AddMvc()
               .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -33,6 +35,10 @@ namespace CoreCodeCamp
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
 
             app.UseMvc();
         }
